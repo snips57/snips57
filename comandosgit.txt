@@ -1,0 +1,16 @@
+git status
+git commit -m
+git log
+git config
+git clone
+git add
+git push
+git log  --grafig --decorte
+git log  --online 
+git log -3
+git log --author="snips57"
+git pull
+git rm
+
+
+
