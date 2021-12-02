@@ -1,0 +1,12 @@
+  [servidores_web]
+  2 web ansible_ssh_host=52.67.68.160
+  3 
+  4 [servidores_bd]
+  5 mysql ansible_ssh_host=18.230.143.71
+  6 
+  7 
+  8 [servidores:children]
+  9 servidores_bd
+ 10 servidores_web
+~                                                                                                                                                                                                                                                                    
+~                               
