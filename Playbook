@@ -1,0 +1,35 @@
+  1 ---
+  2 # Gerenciamento de pacotes de Atualizacao do sistema operacional
+  3 
+  4 - name: Atualizacao do sistema Operacional
+  5   yum: name=* state=latest update_cache=yes
+  6 
+  7 - name: Instalacao de pacote
+  8   yum:
+  9     name:  "{{ packages }}"
+ 10     state: latest
+ 11   vars:
+ 12     packages:
+ 13       - net-tools
+ 14       - vim
+ 15       - nmap
+ 16 
+ 17 # Configuracao de Timezone
+ 18 
+ 19 - name:  Configuracao Timezone
+ 20   file:  src=/usr/share/zoneinfo/America/Sao_Paulo dest=/etc/localtime state=link force=yes
+ 21   
+ 22 - name:  Copiando arquivo de backup
+ 23   copy:  src=backup.tar.xz dest=/tmp/backup.tar.xz 
+ 24 
+ 25 - name: Copiando Templete
+ 26   template: src=mod dest=/etc/mod force=yes owner=root group=root
+ 27 
+ 28 # Instal~cao do nginx
+ 29 
+ 30 - name: Instalacao do nginx
+ 31   yum: name=nginx state=latest
+ 32   notify: Restart nginx
+ 33 
+ 34 ...
+~                                   
