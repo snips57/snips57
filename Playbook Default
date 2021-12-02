@@ -1,0 +1,5 @@
+  1  name: Default Plabook - Starting Deploy
+  2   hosts: all
+  3   roles:
+  4     - common
+  5 
